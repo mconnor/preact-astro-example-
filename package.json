@@ -2,10 +2,12 @@
   "name": "preact-astro-example",
   "type": "module",
   "version": "0.0.1",
+  "author": "Mike Connor",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "check": "astro check",
+    "sync": "astro sync",
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
@@ -27,7 +29,6 @@
   "devDependencies": {
     "@eslint/js": "^9.6.0",
     "eslint": "^9.6.0",
-    "eslint-config-preact": "^1.4.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-astro": "^1.2.3",
     "eslint-plugin-jsx-a11y": "^6.9.0",

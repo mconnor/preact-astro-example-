@@ -1,35 +1,39 @@
 ---
-import { signal } from '@preact/signals';
+
 // Component Imports
 import Counter from '@/components/Counter';
 import Layout from '@/layouts/Layout.astro';
 import Modal from '@/components/Modal';
 import ModalButton from '@/components/ModalButton';
 
+import {createAppState} from '@/state/index.ts';
+
+const state = createAppState();
+
 
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
 
-const count = signal(0);
+// const count = signal(0);
 
-const isOpen = signal(false);
+// const isOpen = signal(false);
 ---
 
 <Layout>
-  <Counter count={count} client:visible>
+  <Counter count={state.count} client:visible>
     <h1>Hello, Preact 1!</h1>
   </Counter>
 
-  <Counter count={count} client:visible>
+  <Counter count={state.count} client:visible>
     <h1>Hello, Preact 2!</h1>
   </Counter>
 
 
 
-  <ModalButton isOpen={isOpen} client:visible>show</ModalButton>
+  <ModalButton isOpen={state.modalIsOpen} client:visible>show</ModalButton>
 
-  <Modal isOpen={isOpen} client:visible>
+  <Modal isOpen={state.modalIsOpen} client:visible>
     <h1>Let's modal</h1>
     <p>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores

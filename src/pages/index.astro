@@ -5,35 +5,36 @@ import Counter from '@/components/Counter';
 import Layout from '@/layouts/Layout.astro';
 import Modal from '@/components/Modal';
 import ModalButton from '@/components/ModalButton';
+import { signal } from '@preact/signals';
 
-import {createAppState} from '@/state/index.ts';
+// import {createAppState} from '@/state/index.ts';
 
-const state = createAppState();
+// const state = createAppState();
 
 
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
 
-// const count = signal(0);
+const count = signal(0);
 
-// const isOpen = signal(false);
+const isOpen = signal(false);
 ---
 
 <Layout>
-  <Counter count={state.count} client:visible>
+  <Counter count={count} client:visible>
     <h1>Hello, Preact 1!</h1>
   </Counter>
 
-  <Counter count={state.count} client:visible>
+  <Counter count={count} client:visible>
     <h1>Hello, Preact 2!</h1>
   </Counter>
 
 
 
-  <ModalButton isOpen={state.modalIsOpen} client:visible>show</ModalButton>
+  <ModalButton isOpen={isOpen} client:visible>show</ModalButton>
 
-  <Modal isOpen={state.modalIsOpen} client:visible>
+  <Modal isOpen={isOpen}  client:visible>
     <h1>Let's modal</h1>
     <p>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores
@@ -43,3 +44,12 @@ const state = createAppState();
     </p>
   </Modal>
 </Layout>
+
+<!-- <script>
+
+document.addEventListener('astro:page-load', () => {
+  document.querySelector('.hamburger').addEventListener('click', () => {
+    document.querySelector('.nav-links').classList.toggle('expanded');
+  });
+});
+</script> -->

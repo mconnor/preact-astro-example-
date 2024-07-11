@@ -1,15 +1,15 @@
-import type { ComponentChildren } from 'preact';
-import type { Signal } from '@preact/signals';
-import { lazy, Suspense } from 'preact/compat';
-import './Counter.css';
+import type { ComponentChildren } from "preact";
+import type { Signal } from "@preact/signals";
+import { lazy, Suspense } from "preact/compat";
+import "./Counter.css";
 
-const Message = lazy(async () => import('./Message'));
+const Message = lazy(async () => import("./Message"));
 const Fallback = () => <p>Loading...</p>;
 
-type Props = {
+interface Props {
   children: ComponentChildren;
   count: Signal<number>;
-};
+}
 
 export default function Counter({ children, count }: Props) {
   const add = () => count.value++;

@@ -6,13 +6,16 @@ import type { Signal } from '@preact/signals';
 // const Message = lazy(async () => import("./Message"));
 // const Fallback = () => <p>Loading...</p>;
 
-type Props = {
+interface Props {
   children: ComponentChildren;
   isOpen: Signal<boolean>;
-};
+}
 
 export default function ModalButton({ children, isOpen }: Props) {
-  const onClick = () => (isOpen.value = !isOpen.value);
+  const onClick = () => {
+    console.log('click')
+    isOpen.value = !isOpen.value;
+  }
 
   return (
     <>

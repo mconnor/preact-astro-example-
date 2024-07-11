@@ -1,11 +1,12 @@
 ---
+import { signal } from '@preact/signals';
 // Component Imports
 import Counter from '@/components/Counter';
 import Layout from '@/layouts/Layout.astro';
 import Modal from '@/components/Modal';
 import ModalButton from '@/components/ModalButton';
 
-import { signal } from '@preact/signals';
+
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
@@ -24,9 +25,11 @@ const isOpen = signal(false);
     <h1>Hello, Preact 2!</h1>
   </Counter>
 
+
+
   <ModalButton isOpen={isOpen} client:visible>show</ModalButton>
 
-  <Modal isOpen={isOpen} client:only="preact">
+  <Modal isOpen={isOpen} client:visible>
     <h1>Let's modal</h1>
     <p>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores

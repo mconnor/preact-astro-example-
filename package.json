@@ -8,7 +8,7 @@
     "start": "astro dev",
     "check": "astro check",
     "sync": "astro sync",
-    "build": "astro check && astro build",
+    "build": "astro check && astro build --verbose",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint \"src/**/*.{js,jsx,ts,jsx,astro,md}\"",
@@ -20,7 +20,7 @@
   "dependencies": {
     "@astrojs/check": "^0.8.1",
     "@astrojs/preact": "^3.5.0",
-    "@preact/signals": "^1.3.0",
+    "@preact/signals": "~1.2.3",
     "astro": "^4.11.5",
     "preact": "^10.22.1",
     "typescript": "^5.5.3"

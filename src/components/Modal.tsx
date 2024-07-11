@@ -1,7 +1,7 @@
 import type { ComponentChildren } from "preact";
 import type { Signal } from "@preact/signals";
 import { lazy, Suspense } from "preact/compat";
-
+import ModalButton from "@/components/ModalButton";
 const Message = lazy(async () => import("./Message"));
 const Fallback = () => <p>Loading...</p>;
 
@@ -15,15 +15,10 @@ type Props = {
 const Modal = ({ children, isOpen }: Props) => {
   return (
     <>
-      <div class={isOpen ? "modal" : "visually-hidden"}>
+      <div class={isOpen.valueOf() ? "modal" : "visually-hidden"}>
         <div class="container">
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores
-            distinctio, unde molestiae vero tempora officiis at? Consequatur
-            quam omnis blanditiis culpa, quia accusamus, nostrum sunt modi
-            laboriosam deserunt tempore error.
-          </p>
-          <button>close</button>
+          <ModalButton isOpen={isOpen}>x</ModalButton>
+
           <Suspense fallback={Fallback}>
             <Message>{children}</Message>
           </Suspense>

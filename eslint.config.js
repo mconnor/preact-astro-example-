@@ -4,6 +4,7 @@ import eslintPluginAstro from 'eslint-plugin-astro';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import globals from 'globals';
 import js from '@eslint/js';
+import preact from 'eslint-config-preact';
 
 import tseslint from 'typescript-eslint';
 
@@ -12,6 +13,7 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   ...tseslint.configs.stylistic,
   ...eslintPluginAstro.configs.recommended,
+  ...preact.configs.recommended,
 
   {
     ignores: ['src/**/_*.*', 'dist/'],

@@ -20,7 +20,7 @@ const Modal = ({ children, isOpen }: Props) => {
   // };
 
   return (
-    <>
+    <div>
       <div
         role="dialog"
         aria-labelledby="modalTitle"
@@ -37,7 +37,7 @@ const Modal = ({ children, isOpen }: Props) => {
           </Suspense>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
